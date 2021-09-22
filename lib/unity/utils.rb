@@ -1,6 +1,12 @@
 # frozen_string_literal: true
 
-Dir['./lib/unity/**/**.rb'].sort.each { |file_path| require(file_path) }
+# Modules
+require_relative 'modules/logable'
+require_relative 'modules/cli_modeable'
+
+# Utils
+require_relative 'utils/retrier'
+require_relative 'utils/thread_pool'
 
 module Unity
   module Utils

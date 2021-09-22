@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
-require_relative 'lib/unity/utils'
+require_relative 'lib/unity-utils'
 
 Gem::Specification.new do |spec|
   spec.name          = 'unity-utils'
-  spec.version       = '0.1.0'
+  spec.version       = '0.1.1'
   spec.authors       = ['Mikhail Georgievskiy']
   spec.email         = ['m.georgievskiy@rambler-co.ru']
 
@@ -14,7 +14,7 @@ Gem::Specification.new do |spec|
 
   spec.metadata['homepage_uri'] = spec.homepage
 
-  spec.files         = Dir['lib/**/**/*.rb']
+  spec.files         = Dir['lib/**/*']
   spec.executables   = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ['lib']
