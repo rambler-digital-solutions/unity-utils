@@ -1,0 +1,8 @@
+---
+ru:
+  unity_utils:
+    errors:
+      blank_url: Ссылка не может быть пустой
+      invalid_url_format: Неправильный формат ссылки
+      blank_host: Хост не может быть пустым
+      invalid_protocol: Ссылка должна начинаться с http(s)

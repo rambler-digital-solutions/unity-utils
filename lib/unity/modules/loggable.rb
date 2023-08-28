@@ -4,7 +4,7 @@ require 'logger'
 
 module Unity
   module Modules
-    module Logable
+    module Loggable
       attr_reader :log_file, :logger
 
       def clean_logfile

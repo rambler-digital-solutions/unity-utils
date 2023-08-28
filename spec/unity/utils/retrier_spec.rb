@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'spec_helper'
+
 RSpec.describe Unity::Utils::Retrier do
   let(:errors) { nil }
   let(:action) { 5 + 5 }
