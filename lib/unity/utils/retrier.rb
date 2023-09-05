@@ -5,8 +5,8 @@ module Unity
     class Retrier
       attr_reader :errors, :max_retries, :sleep_factor
 
-      def self.call
-        new.call(&Proc.new) if block_given?
+      def self.call(&block)
+        new.call(&block) if block_given?
       end
 
       def initialize(errors = nil, max_retries = 5, sleep_factor = 0.3)
