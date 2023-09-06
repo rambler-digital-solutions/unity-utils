@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |spec|
   spec.name          = 'unity-utils'
-  spec.version       = '0.1.2'
+  spec.version       = '0.2.0'
   spec.authors       = ['Mikhail Georgievskiy']
   spec.email         = ['m.georgievskiy@rambler-co.ru']
 
@@ -17,7 +17,7 @@ Gem::Specification.new do |spec|
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ['lib']
 
-  spec.add_dependency 'activesupport', '>= 4.2'
-  spec.add_dependency 'rspec-core', '>= 3.9'
-  spec.add_dependency 'ruby-progressbar', '>= 1.11.0'
+  spec.add_dependency 'activesupport', '~> 4.2', '>= 4.2.0'
+  spec.add_dependency 'rspec-core', '~> 3.9', '>= 3.9.0'
+  spec.add_dependency 'ruby-progressbar', '~> 1.11', '>= 1.11.0'
 end
