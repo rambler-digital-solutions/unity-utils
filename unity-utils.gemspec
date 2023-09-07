@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |spec|
   spec.name          = 'unity-utils'
-  spec.version       = '0.1.2'
+  spec.version       = '0.2.0'
   spec.authors       = ['Mikhail Georgievskiy']
   spec.email         = ['m.georgievskiy@rambler-co.ru']
 
