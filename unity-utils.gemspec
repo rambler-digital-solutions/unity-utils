@@ -1,8 +1,10 @@
 # frozen_string_literal: true
 
+require_relative 'lib/unity/version'
+
 Gem::Specification.new do |spec|
   spec.name          = 'unity-utils'
-  spec.version       = '0.2.0'
+  spec.version       = Unity::VERSION
   spec.authors       = ['Mikhail Georgievskiy']
   spec.email         = ['m.georgievskiy@rambler-co.ru']
 
@@ -18,6 +20,7 @@ Gem::Specification.new do |spec|
   spec.require_paths = ['lib']
 
   spec.add_dependency 'activesupport', '>= 4.2'
+  spec.add_dependency 'faraday', '>= 1.0', '< 1.4'
   spec.add_dependency 'rspec-core', '>= 3.9'
   spec.add_dependency 'ruby-progressbar', '>= 1.11.0'
 end
