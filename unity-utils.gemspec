@@ -21,6 +21,7 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency 'activesupport', '>= 4.2'
   spec.add_dependency 'faraday', '>= 1.0', '< 1.4'
-  spec.add_dependency 'rspec-core', '>= 3.9'
+  spec.add_dependency 'rspec-rails', '>= 5.0'
   spec.add_dependency 'ruby-progressbar', '>= 1.11.0'
+  spec.add_dependency 'test-prof', '~> 1.0'
 end

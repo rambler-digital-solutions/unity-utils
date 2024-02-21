@@ -7,7 +7,6 @@ require_relative 'modules/flexible_boolean'
 require_relative 'modules/loggable'
 
 # Utils
-require_relative 'utils/ci_formatter'
 require_relative 'utils/faraday_with_retries'
 require_relative 'utils/retrier'
 require_relative 'utils/thread_pool'
