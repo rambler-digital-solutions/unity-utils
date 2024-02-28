@@ -5,24 +5,6 @@ Gem with utilities used by Unity team
 # Documentation
 
 - ### Utils:
-  - **CiFormatter** - Custom rspec formatter: collapses pending tests and adds some time analytics.
-
-    ```
-    rspec --formatter CiFormatter
-    ...bash
-    Rubric publishing using Muppet::PublishJob
-      updating rubric
-        enqueues Muppet::PublishJob               | Duration: 0.03981s
-    ...
-    Groups:
-    7.20884s ./spec/services/topics_views_count/update_spec.rb (right after midnight)
-    5.45071s ./spec/commands/ugc/approve_topic_spec.rb (approve logic)
-    ...
-    Single examples:
-    5.45071s ./spec/commands/ugc/approve_topic_spec.rb (approve logic / creates a topic)
-    4.91609s ./spec/commands/topic/update/reviews_of_published_spec.rb (has correct state value / is expected to be need approval)
-    ```
-
   - **Retrier** - Restarting passed block.
     ```ruby
     Unity::Utils::Retrier.call { 5 / 0 }
@@ -105,6 +87,56 @@ Gem with utilities used by Unity team
             logger.error(pretty_e)
         end
         ```
+
+- ### Rake tasks:
+  - **unity:rspec** - rspec with custom report format: collapses pending tests and adds some analytics.
+
+    ```bash
+    bundle exec rake unity:rspec
+    bundle exec rake unity:rspec\['spec/queries'\]
+    bundle exec rake unity:rspec\['spec/{jobs\,services}/'\]
+    bundle exec rake unity:rspec\['spec/ --exclude-pattern "spec/{models\,requests}/**/*_spec.rb"'\]
+    ...
+    [TEST PROF INFO] TagProf report for type
+
+      type          time          total   %total    %time     avg
+
+      query         00:27.908     134     15.14     37.51     00:00.208
+      service       00:15.849     167     18.87     21.31     00:00.094
+      ...
+
+    Top 10 slowest examples (10.23 seconds, 13.7% of total time):
+      Api::V2::RssGeneratorJob generate for topic1 double generating does not duplicate data
+        1.32 seconds ./spec/jobs/api/v2/rss_generator_job_spec.rb:39
+      Exports::V2::BaseQuery behaves like queries/exports/v2/postponed when site is postponed is expected to contain
+        1.2 seconds ./spec/support/shared_examples/queries/exports/v2/postponed_example.rb:28
+      ...
+
+    Top 10 slowest example groups:
+      Exports::V2::Indexnow::TopicsQuery
+        0.89632 seconds average (5.38 seconds / 6 examples) ./spec/queries/exports/v2/indexnow/topics_query_spec.rb:5
+      Exports::V2::RssAggregation
+        0.70154 seconds average (5.61 seconds / 8 examples) ./spec/services/exports/rss_aggregation_spec.rb:5
+      ...
+
+    Finished in 1 minute 14.71 seconds (files took 7.29 seconds to load)
+    885 examples, 0 failures, 31 pending
+
+    Randomized with seed 6856
+
+    [TEST PROF INFO] Factories usage
+
+      Total: 1624
+      Total top-level: 1298
+      Total time: 00:54.568 (out of 01:16.029)
+      Total uniq factories: 12
+
+        total   top-level     total time      time per call     top-level time      name
+
+        521         521       8.9882s         0.0173s           8.9882s             v2_topic
+        394         394       17.5059s        0.0444s           17.5059s            v2_push_topic
+        ...
+    ```
 
 ## Installation
 
